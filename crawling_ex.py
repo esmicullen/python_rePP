@@ -5,6 +5,11 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 import time
 import urllib.request
+# 추후 업데이트 용 임포트들
+import os
+from PIL.Image import Image
+from PIL import Image
+import random
 
 driver = webdriver.Chrome(service = Service(ChromeDriverManager().install()))
 URL = 'https://www.google.co.kr/imghp'
@@ -44,6 +49,20 @@ print("찾은 이미지 개수 : ", len(links))
 
 for i, k in enumerate(links):
     url = k
-    urllib.request.urlretrieve(url, "D:\\joshua\\test" + str(i) + ".jpg")
+    urllib.request.urlretrieve(url, "D:\\joshua\\img" + str(i) + ".jpg")
 
 print("다운로드 완료")
+
+# initial_count = 0
+# dir = "D:/joshua"
+# for path in os.listdir(dir):
+#     if os.path.isfile(os.path.join(dir, path)):
+#         initial_count += 1
+#
+# su = random.randint(1,initial_count)
+#
+# print(su)
+#
+# sajin = Image.open(f'img.{su}')
+#
+# sajin.show()
