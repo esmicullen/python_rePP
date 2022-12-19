@@ -11,6 +11,8 @@ from PIL.Image import Image
 from PIL import Image
 import random
 
+key = input('검색어 입력 >>')
+
 driver = webdriver.Chrome(service = Service(ChromeDriverManager().install()))
 URL = 'https://www.google.co.kr/imghp'
 driver.get(url=URL)
@@ -18,7 +20,7 @@ driver.implicitly_wait(time_to_wait=10)
 
 elem = driver.find_element(By.CSS_SELECTOR, "body > div.L3eUgb > div.o3j99.ikrT4e.om7nvf >  form > div:nth-child(1) > div.A8SBwf > div.RNNXgb > div > div.a4bIc > input")
 
-elem.send_keys(input('검색어 입력 >>'))
+elem.send_keys(key)
 elem.send_keys(Keys.RETURN)
 elem = driver.find_element(By.TAG_NAME, "body")
 
